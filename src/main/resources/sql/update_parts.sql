@@ -1,0 +1,2 @@
+update parts set ? = ?
+where ? = ?;
