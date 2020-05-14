@@ -6,8 +6,11 @@ public class Category {
 	private long parent_category_id;
 	private Category parent;
 	
+	public Category() {
+		
+	}
+	
 	public Category(long id, String name, long parent_category_id, Category parent) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.parent_category_id = parent_category_id;
@@ -30,11 +33,11 @@ public class Category {
 		this.name = name;
 	}
 
-	public long getParent_category_id() {
+	public long getParentCategoryId() {
 		return parent_category_id;
 	}
 
-	public void setParent_category_id(long parent_category_id) {
+	public void setParentCategoryId(long parent_category_id) {
 		this.parent_category_id = parent_category_id;
 	}
 
