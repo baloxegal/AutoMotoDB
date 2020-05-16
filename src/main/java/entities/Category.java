@@ -3,14 +3,14 @@ package entities;
 public class Category {
 	private long id;
 	private String name;
-	private long parent_category_id;
+	private Long parent_category_id;
 	private Category parent;
 	
 	public Category() {
 		
 	}
 	
-	public Category(long id, String name, long parent_category_id, Category parent) {
+	public Category(long id, String name, Long parent_category_id, Category parent) {
 		this.id = id;
 		this.name = name;
 		this.parent_category_id = parent_category_id;
@@ -22,7 +22,7 @@ public class Category {
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		if(id >= 0) this.id = id;
 	}
 
 	public String getName() {
@@ -30,14 +30,14 @@ public class Category {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if(name != null) this.name = name;
 	}
 
-	public long getParentCategoryId() {
+	public Long getParentCategoryId() {
 		return parent_category_id;
 	}
 
-	public void setParentCategoryId(long parent_category_id) {
+	public void setParentCategoryId(Long parent_category_id) {
 		this.parent_category_id = parent_category_id;
 	}
 
