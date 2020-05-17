@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<connectionProperties>
+	<user>postgres</user>
+	<password>Baloxegal510212</password>
+	<ssl>false</ssl>
+</connectionProperties>

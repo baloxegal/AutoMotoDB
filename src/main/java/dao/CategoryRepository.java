@@ -10,7 +10,7 @@ import db.PostgresConnectionManager;
 
 public class CategoryRepository {
 	
-	public void create (Category category) throws SQLException{
+	public boolean create (Category category) throws SQLException{
 		
 //		Statement st = connect().createStatement();	
 //		st.executeUpdate("Insert into categories (id, name, parent_id) values ("+ category.getId() + ",'" + category.getName()
@@ -20,11 +20,10 @@ public class CategoryRepository {
 		pst.setLong(1, category.getId());
 		pst.setString(2, category.getName());
 		if(category.getParentCategoryId() != null) pst.setLong(3, category.getParentCategoryId());
-		else pst.setString(3, null);
-		pst.execute();
+		return pst.execute();
 	}
 	
-public Category read (long id) throws SQLException{
+public Category find (long id) throws SQLException{
 	
 		Statement st = PostgresConnectionManager.getConnection().createStatement();	
 		ResultSet resSet = st.executeQuery("Select * from categories where id = " + id + ";");
