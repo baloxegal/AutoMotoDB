@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xml>
-<connectionProperties>
-	<user>postgres</user>
-	<password>Baloxegal510212</password>
-	<ssl>false</ssl>
-</connectionProperties>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>auto_moto_properties_data</comment>
+	<entry key = "user">postgres</entry>
+	<entry key = "password">Baloxegal510212</entry>
+	<entry key = "ssl">false</entry>
+</properties>

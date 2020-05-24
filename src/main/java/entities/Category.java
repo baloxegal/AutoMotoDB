@@ -1,28 +1,22 @@
 package entities;
 
-public class Category {
+public class Category extends Entity implements HasNameInterface {
 	private long id;
 	private String name;
 	private Long parent_category_id;
-	private Category parent;
-	
-	public Category() {
 		
+	public Category() {
+		setTable("categories");
 	}
 	
 	public Category(long id, String name, Long parent_category_id, Category parent) {
-		this.id = id;
-		this.name = name;
-		this.parent_category_id = parent_category_id;
-		this.parent = parent;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		if(id >= 0) this.id = id;
+		this();
+		if(id >= 0)
+			this.id = id;
+		if(name != null)
+			this.name = name;
+		if(parent_category_id >= 0)
+			this.parent_category_id = parent_category_id;
 	}
 
 	public String getName() {
@@ -38,20 +32,7 @@ public class Category {
 	}
 
 	public void setParentCategoryId(Long parent_category_id) {
-		this.parent_category_id = parent_category_id;
-	}
-
-	public Category getParent() {
-		return parent;
-	}
-
-	public void setParent(Category parent) {
-		this.parent = parent;
-	}
-
-	@Override
-	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", parent_category_id=" + parent_category_id + ", parent="
-				+ parent + "]";
+		if(parent_category_id >= 0)
+			this.parent_category_id = parent_category_id;
 	}
 }
