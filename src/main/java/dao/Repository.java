@@ -10,7 +10,8 @@ import entities.Category;
 public abstract class Repository {
 	
 	public static <T> boolean create(String className, T x1, T x2, T x3) throws SQLException, IOException {
-		
+			
+			
 			PreparedStatement pst = null;
 			if(category.getParentCategoryId() != null) {
 				//pst = PostgresConnectionManager.getConnection().prepareStatement("Insert into categories (id, name, parent_id) values (?,?,?)");
