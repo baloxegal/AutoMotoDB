@@ -12,7 +12,7 @@ public class Application {
 						
 		CategoryRepository catRep = new CategoryRepository();
 		
-		catRep.create(new Category(44,"testForSQLFile",null, null));
+		catRep.create(new Category(44,"testForSQLFile", null));
 		
 		System.out.println(catRep.find(44));
 	

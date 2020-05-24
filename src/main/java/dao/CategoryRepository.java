@@ -1,11 +1,11 @@
 package dao;
 
-import java.sql.SQLException;
-import java.io.IOException;
-
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
+
+import java.sql.SQLException;
+import java.io.IOException;
 
 import entities.Category;
 import db.PostgresConnectionManager;

@@ -1,6 +1,6 @@
 package entities;
 
-public class Category extends Entity implements HasNameInterface {
+public class Category extends Entity {
 	private long id;
 	private String name;
 	private Long parent_category_id;

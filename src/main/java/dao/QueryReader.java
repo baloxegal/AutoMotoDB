@@ -8,19 +8,14 @@ import java.io.IOException;
 
 public class QueryReader {
 	
-	protected static String sqlFileReader(String nameFile, int i) throws FileNotFoundException, IOException {
+	protected static String sqlFileReader(String nameFile) throws FileNotFoundException, IOException {
 				
 		BufferedReader buffer = new BufferedReader(new FileReader(Thread.currentThread()
 				.getContextClassLoader().getResource("").getPath() + "sql/" + nameFile + ".sql"));
 		String inputLine;
 		String query = "";
-		int j = 0;
 		while ((inputLine = buffer.readLine()) != null) {
-			if(i == j) {
-				query += inputLine;
-				break;
-			}
-			j++;
+			query += inputLine;
 		}
 		buffer.close();
 		return query;
