@@ -1,2 +1,0 @@
-update parts set ? = ?
-where ? = ?;

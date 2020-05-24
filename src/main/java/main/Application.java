@@ -1,10 +1,10 @@
 package main;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
 import dao.CategoryRepository;
 import entities.Category;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class Application {
 
@@ -12,9 +12,9 @@ public class Application {
 						
 		CategoryRepository catRep = new CategoryRepository();
 		
-		catRep.create(new Category(43,"testForNewSQLFile",null, null));
+		catRep.create(new Category(44,"testForSQLFile",null, null));
 		
-		System.out.println(catRep.find(43));
+		System.out.println(catRep.find(44));
 	
 	}
 

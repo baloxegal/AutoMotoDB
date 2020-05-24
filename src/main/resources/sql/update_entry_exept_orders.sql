@@ -1,0 +1,2 @@
+update ? set ? = ?
+where ? = ?;

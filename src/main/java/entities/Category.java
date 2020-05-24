@@ -9,7 +9,7 @@ public class Category extends Entity implements HasNameInterface {
 		setTable("categories");
 	}
 	
-	public Category(long id, String name, Long parent_category_id, Category parent) {
+	public Category(long id, String name, Long parent_category_id) {
 		this();
 		if(id >= 0)
 			this.id = id;
