@@ -17,7 +17,7 @@ public class Application {
 //		
 //		System.out.println(catRep.find(44));
 		
-		Repository.create("Category", 48, "testSuperAll", null);
+		Repository.create("categories", 48, "testSuperAll", null);
 	
 	}
 
