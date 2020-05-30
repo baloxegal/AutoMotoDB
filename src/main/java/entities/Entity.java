@@ -2,17 +2,13 @@ package entities;
 
 public abstract class Entity {
 	
-	private long id;
+	private Long id;
 	private String table;
 	
-	public long getId() {
-		return id;
-	}
+	public abstract Long getId();
 
-	public void setId(long id) {
-		if(id >= 0) this.id = id;
-	}
-
+	public abstract void setId(Long id);
+	
 	public String getTable() {
 		return table;
 	}

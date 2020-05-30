@@ -1,7 +1,7 @@
 package entities;
 
 public class Category extends Entity {
-	private long id;
+	private Long id;
 	private String name;
 	private Long parent_category_id;
 		
@@ -9,7 +9,7 @@ public class Category extends Entity {
 		setTable("categories");
 	}
 	
-	public Category(long id, String name, Long parent_category_id) {
+	public Category(Long id, String name, Long parent_category_id) {
 		this();
 		if(id >= 0)
 			this.id = id;
@@ -17,6 +17,14 @@ public class Category extends Entity {
 			this.name = name;
 		if(parent_category_id >= 0)
 			this.parent_category_id = parent_category_id;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		if(id >= 0) this.id = id;
 	}
 
 	public String getName() {
@@ -27,7 +35,7 @@ public class Category extends Entity {
 		if(name != null) this.name = name;
 	}
 
-	public Long getParentCategoryId() {
+	public long getParentCategoryId() {
 		return parent_category_id;
 	}
 

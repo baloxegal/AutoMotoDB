@@ -1,33 +1,32 @@
 package dao;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.InvalidPropertiesFormatException;
 
-import db.PostgresConnectionManager;
 import entities.Category;
+import entities.Entity;
+import util.ClassReflection;
+import util.TableClassMemberReader;
 
 public abstract class Repository {
 	
-	public static <T> boolean create(String className, T x1, T x2, T x3) throws SQLException, IOException {
-			
-			
-			PreparedStatement pst = null;
-			if(category.getParentCategoryId() != null) {
-				//pst = PostgresConnectionManager.getConnection().prepareStatement("Insert into categories (id, name, parent_id) values (?,?,?)");
-				pst = PostgresConnectionManager.getConnection().prepareStatement(QueryReader.sqlFileReader("create_new_categories"));
-				pst.setLong(1, category.getId());
-				pst.setString(2, category.getName());
-				pst.setLong(3, category.getParentCategoryId());
-			}
-			else {
-				//pst = PostgresConnectionManager.getConnection().prepareStatement("Insert into categories (id, name) values (?,?)");
-				pst = PostgresConnectionManager.getConnection().prepareStatement(QueryReader.sqlFileReader("create_new_categories"));
-				pst.setLong(1, category.getId());
-				pst.setString(2, category.getName());
-			}
-			return pst.execute();
-		}
-	}
+	@SafeVarargs
+	public static <T> Entity create(String table, T... paramForObject) throws InvalidPropertiesFormatException, FileNotFoundException,
+					ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException,
+					InvocationTargetException, NoSuchMethodException, SecurityException, IOException{
 
+		Entity ps = ClassReflection.objectForQuery(TableClassMemberReader.xmlTableReader(table), paramForObject);
+		
+		
+		
+		System.out.println(ps.getId());
+		System.out.println(((Category)ps).getName());
+		System.out.println(ps.getTable());
+		System.out.println(((Category)ps).getParentCategoryId());
+		return ps;
+	}
 }
+
+

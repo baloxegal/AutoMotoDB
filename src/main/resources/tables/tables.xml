@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>auto_moto_tables</comment>
+	<entry key = "categories">entities.Category</entry>
+	<entry key = "orders">entities.Order</entry>
+	<entry key = "parts">entities.Part</entry>
+	<entry key = "parts_stock">entities.PartStock</entry>
+</properties>
