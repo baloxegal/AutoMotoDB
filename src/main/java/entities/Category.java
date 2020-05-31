@@ -1,6 +1,7 @@
 package entities;
 
 public class Category extends Entity {
+	@SuppressWarnings("unused")
 	private Long id;
 	private String name;
 	private Long parent_category_id;
@@ -19,14 +20,6 @@ public class Category extends Entity {
 			this.parent_category_id = parent_category_id;
 	}
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		if(id >= 0) this.id = id;
-	}
-
 	public String getName() {
 		return name;
 	}

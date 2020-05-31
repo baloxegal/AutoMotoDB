@@ -1,10 +1,10 @@
 package main;
 
-import dao.Repository;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+
+import dao.Repository;
 
 public class Application {
 
@@ -12,6 +12,6 @@ public class Application {
 							NoSuchMethodException, SecurityException, InstantiationException,
 							IllegalAccessException,	IllegalArgumentException, InvocationTargetException{
 						
-		Repository.create("categories", 125l, "testOlimpMega", 45l);
+		Repository.create("categories",1058l, "It ALL for ALL", 1000l);
 	}
 }

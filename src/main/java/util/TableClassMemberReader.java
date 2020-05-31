@@ -14,7 +14,7 @@ public class TableClassMemberReader {
 		
 		Properties propXMLTables = new Properties();
 		propXMLTables.loadFromXML(new FileInputStream(Thread.currentThread()
-				.getContextClassLoader().getResource("").getPath() + "tablesAndClassesRef/tablesAndClasses.xml"));
+				.getContextClassLoader().getResource("").getPath() + "config/tablesAndClassesRef.xml"));
 		
 		if(propXMLTables.containsKey(table)) {
 			

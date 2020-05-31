@@ -5,9 +5,13 @@ public abstract class Entity {
 	private Long id;
 	private String table;
 	
-	public abstract Long getId();
+	public Long getId() {
+		return id;
+	}
 
-	public abstract void setId(Long id);
+	public void setId(Long id) {
+		if(id >= 0) this.id = id;
+	}
 	
 	public String getTable() {
 		return table;

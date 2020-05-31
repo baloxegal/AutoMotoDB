@@ -22,16 +22,14 @@ public abstract class Repository {
 					InvocationTargetException, NoSuchMethodException, SecurityException, IOException, SQLException{
 
 		Entity entity = ClassReflection.objectForQuery(TableClassMemberReader.xmlTableReader(table), paramForObject);
-		
-		
-		
-		String queryValues1 = "";
+				
+		String queryValues = "";
 		
 		for(@SuppressWarnings("unused") Object queryArgument : paramForObject) {
-			queryValues1 += "?,";
+			queryValues += "?,";
 		}
 		
-		String queryValues = new StringBuffer(queryValues1).deleteCharAt(queryValues1.lastIndexOf(",")).toString();
+		queryValues = new StringBuffer(queryValues).deleteCharAt(queryValues.lastIndexOf(",")).toString();
 		
 		
 		if(!entity.getClass().getSimpleName().equals("Order")) {
@@ -40,7 +38,7 @@ public abstract class Repository {
 									insert(12, table).insert(12 + table.length() + 9, queryValues).toString();
 			
 			PreparedStatement pst = PostgresConnectionManager.getConnection().prepareStatement(createQuery);
-			System.out.println(createQuery);
+			
 			Method[] methods = PreparedStatement.class.getMethods();
 			
 			int i = 1;
@@ -55,14 +53,38 @@ public abstract class Repository {
 			}
 			
 			pst.execute();
+			System.out.println("Operation with Succes!");
 			return true;
 		}
 		else {
-			
+			// Create for Orders
 		}
-
 		return false;
 	}
+	
+	@SafeVarargs
+	public static <T> Boolean delete(String table, T... paramForObject) {
+		
+		return false;
+	}
+	
+	@SafeVarargs
+	public static <T> Boolean findById(String table, T... paramForObject) {
+		
+		return false;
+	}
+	
+	@SafeVarargs
+	public static <T> Boolean findByName(String table, T... paramForObject) {
+		
+		return false;
+	}
+	
+	@SafeVarargs
+	public static <T> Boolean findAll(String table, T... paramForObject) {
+		
+		return false;
+	}
+	
+	//Update and Select
 }
-
-
