@@ -1,4 +1,4 @@
-package db;
+package util;
 
 import java.util.Properties;
 import java.io.FileInputStream;
@@ -32,7 +32,7 @@ public class PostgresConnectionManager {
 //		propsXML.loadFromXML(new FileInputStream("src/main/resources/config/config.xml"));
 		
 		propsXML.loadFromXML(new FileInputStream(Thread.currentThread()
-							.getContextClassLoader().getResource("").getPath() + "config/config.xml"));
+							.getContextClassLoader().getResource("").getPath() + "config/configForConnect.xml"));
 				
 		propsConn.setProperty("user",propsXML.getProperty("user"));
 		propsConn.setProperty("password",propsXML.getProperty("password"));

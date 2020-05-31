@@ -17,17 +17,10 @@ public class ClassReflection {
 	
 		for(int i = 0; i < paramForObject.length; i++) {
 			constructArgs[i] = paramForObject[i].getClass();
-			System.out.println(constructArgs[i]);
 		}
 		
-		for(Object obj : paramForObject) {
-			System.out.println(obj.getClass());
-			System.out.println(obj);
-		}
-		
-		Entity entity = (Entity) Class.forName(TableClassMemberReader.xmlTableReader(nameClass))
-						.getConstructor(constructArgs).newInstance(paramForObject);
+		Entity entity = (Entity) Class.forName(nameClass).getConstructor(constructArgs).newInstance(paramForObject);
 			
-			return entity;
+		return entity;
 	}
 }

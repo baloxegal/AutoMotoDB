@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class QueryReader {
 	
-	protected static String sqlFileReader(String nameFile) throws FileNotFoundException, IOException {
+	public static String sqlFileReader(String nameFile) throws FileNotFoundException, IOException {
 				
 		BufferedReader buffer = new BufferedReader(new FileReader(Thread.currentThread()
 				.getContextClassLoader().getResource("").getPath() + "sql/" + nameFile + ".sql"));

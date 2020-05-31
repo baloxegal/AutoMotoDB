@@ -1,1 +1,1 @@
-Insert into ? values (?,?,?);
+Insert into  values ();
