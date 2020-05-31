@@ -39,6 +39,7 @@ public class PostgresConnectionManager {
 		propsConn.setProperty("ssl",propsXML.getProperty("ssl"));
 	
 		Connection conn = DriverManager.getConnection(url, propsConn);
+		
 		return conn;
 	}
 }

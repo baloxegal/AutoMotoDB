@@ -12,6 +12,6 @@ public class Application {
 							NoSuchMethodException, SecurityException, InstantiationException,
 							IllegalAccessException,	IllegalArgumentException, InvocationTargetException{
 						
-		Repository.create("categories", 100L, "testOlimp", 45L);
+		Repository.create("categories", 125l, "testOlimpMega", 45l);
 	}
 }

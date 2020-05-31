@@ -25,21 +25,22 @@ public abstract class Repository {
 		
 		
 		
-		String queryValues = "";
+		String queryValues1 = "";
 		
 		for(@SuppressWarnings("unused") Object queryArgument : paramForObject) {
-			queryValues += "?,";
+			queryValues1 += "?,";
 		}
 		
-		String nameClass = entity.getClass().getSimpleName();
+		String queryValues = new StringBuffer(queryValues1).deleteCharAt(queryValues1.lastIndexOf(",")).toString();
 		
-		if(!nameClass.equals("Order")) {
+		
+		if(!entity.getClass().getSimpleName().equals("Order")) {
 			
 			String createQuery = new StringBuffer(QueryReader.sqlFileReader("create_new_entry")).
-									insert(12, nameClass).insert(12 + nameClass.length() + 9, queryValues).toString();
+									insert(12, table).insert(12 + table.length() + 9, queryValues).toString();
 			
 			PreparedStatement pst = PostgresConnectionManager.getConnection().prepareStatement(createQuery);
-			
+			System.out.println(createQuery);
 			Method[] methods = PreparedStatement.class.getMethods();
 			
 			int i = 1;
@@ -52,7 +53,9 @@ public abstract class Repository {
 					}
 				}
 			}
-			return pst.execute();
+			
+			pst.execute();
+			return true;
 		}
 		else {
 			
