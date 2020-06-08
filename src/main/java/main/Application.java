@@ -12,6 +12,6 @@ public class Application {
 							NoSuchMethodException, SecurityException, InstantiationException,
 							IllegalAccessException,	IllegalArgumentException, InvocationTargetException{
 						
-		Repository.create("categories",1058l, "It ALL for ALL", 1000l);
+		Repository.create("categories",2958l, "Metallica", 1000l);
 	}
 }

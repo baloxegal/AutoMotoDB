@@ -6,11 +6,11 @@ public class Category extends Entity {
 	private String name;
 	private Long parent_category_id;
 		
-	public Category() {
+	protected Category() {
 		setTable("categories");
 	}
 	
-	public Category(Long id, String name, Long parent_category_id) {
+	protected Category(Long id, String name, Long parent_category_id) {
 		this();
 		if(id >= 0)
 			this.id = id;

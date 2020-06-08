@@ -5,6 +5,7 @@ import entities.Entity;
 import java.io.FileNotFoundException;
 import java.util.InvalidPropertiesFormatException;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class ClassReflection {
@@ -19,7 +20,11 @@ public class ClassReflection {
 			constructArgs[i] = paramForObject[i].getClass();
 		}
 		
-		Entity entity = (Entity) Class.forName(nameClass).getConstructor(constructArgs).newInstance(paramForObject);
+		Constructor<?> construct = Class.forName(nameClass).getDeclaredConstructor(constructArgs);
+		
+		construct.setAccessible(true);
+		
+		Entity entity = (Entity) construct.newInstance(paramForObject);
 			
 		return entity;
 	}
