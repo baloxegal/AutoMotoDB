@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.InvalidPropertiesFormatException;
+import java.util.stream.Stream;
 
 import entities.Entity;
 import util.ClassReflection;
@@ -15,6 +16,8 @@ import util.QueryReader;
 import util.TableClassMemberReader;
 
 public abstract class Repository {
+	
+	private static int Iterator;
 	
 	@SafeVarargs
 	public static <T> Boolean create(String table, T... paramForObject) throws InvalidPropertiesFormatException, FileNotFoundException,
@@ -41,16 +44,28 @@ public abstract class Repository {
 			
 			Method[] methods = PreparedStatement.class.getMethods();
 			
-			int i = 1;
-			for(Object queryArgument : paramForObject) {
-				for(Method method : methods) {
-					if(method.getName().equals("set" + queryArgument.getClass().getSimpleName())) {
-						method.invoke(pst, i, queryArgument);
-						i++;
-						break;
-					}
-				}
-			}
+//			int i = 1;
+
+//			for(Object queryArgument : paramForObject) {
+//				for(Method method : methods) {
+//					if(method.getName().equals("set" + queryArgument.getClass().getSimpleName())) {
+//						method.invoke(pst, i++, queryArgument);
+//						break;
+//					}
+//				}
+//			}
+			
+			Iterator = 1;
+			
+			Stream.of(paramForObject).forEach(queryArgument -> Stream.of(methods).filter(method -> method.getName()
+					.equals("set" + queryArgument.getClass().getSimpleName())).findAny().ifPresent(method -> {
+						try {
+							method.invoke(pst, Iterator++, queryArgument);
+						} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}));
 			
 			pst.execute();
 			System.out.println("Operation with Succes!");
